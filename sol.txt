@@ -1,0 +1,3 @@
+No solution found.
+Generations: 2400
+Elapsed Time: 32.45 seconds
