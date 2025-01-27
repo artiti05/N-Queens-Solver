@@ -1,54 +1,101 @@
-# N-Queens-Solver
-N Queens Solver using the genetic algorithms (GA)
-Solving N-Queens in GA
+# N-Queens Solver using Genetic Algorithms (GA)
 
-To solve the problem we need to find the best hyperparameter for The GA
-after running the test.py file and inputing the n size a 50 tests will be done 
-showing on the log.txt the best population size, mutation rate, max generations, crossover method
+This project demonstrates solving the N-Queens problem using Genetic Algorithms (GA). The goal is to find the best hyperparameters for the GA to efficiently solve the problem, with the ability to run the hyperparameter tuning and solving phases independently.
 
-those outputs are put as parameters for the N-Q.py and therefore the problem is solved for 
-this n size input in the least time taken
+---
 
-for example for n = 4:
-Population Size: 200, Mutation Rate: 0.05843236813767189, Max Generations: 1300, crossover method: one-point
-Solution (1D Array Representation):
-[2, 0, 3, 1]
+## How It Works
 
-Chessboard Representation:
-.Q..
-...Q
-Q...
-..Q.
-in less than a second is shown on sol.txt file.
+1. **Hyperparameter Tuning (`test.py`)**  
+   - Run the `test.py` file and input the desired `n` (size of the chessboard).  
+   - 50 trials are conducted using Optuna to identify the optimal values for:  
+     - **Population Size**  
+     - **Mutation Rate**  
+     - **Maximum Generations**  
+     - **Crossover Method**  
+   - The best hyperparameters are saved dynamically into a `best_params.json` file for later use.  
 
-and for n = 8 is: Population Size: 300, Mutation Rate: 0.025542997380196827, Max Generations: 2400, crossover method: uniform
-Solution (1D Array Representation):
-[3, 0, 4, 7, 5, 2, 6, 1]
+2. **Solving the Problem (`N-Q.py`)**  
+   - Run the `N-Q.py` file, which reads the saved hyperparameters from `best_params.json`.  
+   - The N-Queens problem is solved for the given `n` size using the tuned hyperparameters.  
+   - The solution, time taken, and generations required are recorded in `sol.txt`.
+   - Progress is logged in `log.txt`, which records the performance of each trial.
 
-Chessboard Representation:
-.Q......
-.......Q
-.....Q..
-Q.......
-..Q.....
-....Q...
-......Q.
-...Q....
-and for n=12: Population Size: 300, Mutation Rate: 0.011494393577002205, Max Generations: 2400, crossover method: one-point
-Solution (1D Array Representation):
-[4, 8, 3, 11, 2, 7, 9, 0, 5, 1, 10, 6]
+---
 
-Chessboard Representation:
-.......Q....
-.........Q..
-....Q.......
-..Q.........
-Q...........
-........Q...
-...........Q
-.....Q......
-.Q..........
-......Q.....
-..........Q.
-...Q........
-and so on for n when it gets larger and larger like n=16, 32....
+### Example Outputs
+
+#### For n = 4
+- **Optimal Parameters** (saved in `best_params.json`):  
+  - Population Size: 200  
+  - Mutation Rate: 0.0584  
+  - Max Generations: 1300  
+  - Crossover Method: One-point  
+
+- **Solution (1D Array Representation)**:  
+  `[2, 0, 3, 1]`
+
+- **Chessboard Representation**:  
+
+- **Time Taken**: Less than a second.
+
+---
+
+#### For n = 8
+- **Optimal Parameters** (saved in `best_params.json`):  
+- Population Size: 300  
+- Mutation Rate: 0.0255  
+- Max Generations: 2400  
+- Crossover Method: Uniform  
+
+- **Solution (1D Array Representation)**:  
+`[3, 0, 4, 7, 5, 2, 6, 1]`
+
+- **Chessboard Representation**:  
+
+- **Time Taken**: Approximately 2 seconds.
+
+---
+
+### Larger Board Sizes
+For larger board sizes (e.g., 16, 32), the genetic algorithm remains efficient due to the use of tuned hyperparameters. However, the execution time may increase as `n` grows.
+
+---
+
+### Files
+- **`test.py`**:  
+- Conducts hyperparameter tuning using Optuna.  
+- Saves the best hyperparameters in `best_params.json`.  
+- Logs all trial results in `log.txt`.  
+
+- **`N-Q.py`**:  
+- Solves the N-Queens problem using the best hyperparameters from `best_params.json`.  
+- Logs the solution, time taken, and generation details in `sol.txt`.  
+
+- **`log.txt`**: Logs the progress and results of each trial during hyperparameter tuning.  
+
+- **`sol.txt`**: Stores the final solution, the chessboard representation, time taken, and generations required.  
+
+- **`best_params.json`**: Contains the optimal hyperparameters identified during tuning.
+
+---
+
+### Key Features
+1. **Independent Execution**:  
+ - The tuning (`test.py`) and solving (`N-Q.py`) phases are completely independent.  
+ - Hyperparameters are seamlessly shared using the `best_params.json` file.  
+
+2. **Real-Time Logging**:  
+ - Both tuning and solving progress are logged dynamically to track performance and execution details.  
+
+3. **Scalability**:  
+ - The framework supports various chessboard sizes and efficiently adapts through optimized hyperparameters.  
+
+--- 
+
+### Future Improvements
+- Add support for distributed execution to handle larger `n` more efficiently.  
+- Visualize the evolution of fitness scores across generations.  
+- Extend the GA implementation to tackle other combinatorial optimization problems.
+
+---

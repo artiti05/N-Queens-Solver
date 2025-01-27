@@ -1,3 +1,15 @@
-No solution found.
-Generations: 2400
-Elapsed Time: 32.45 seconds
+N-Queens Solution Found
+Generations: 112
+Elapsed Time: 2.47 seconds
+Solution (1D Array Representation):
+[6, 2, 0, 5, 7, 4, 1, 3]
+
+Chessboard Representation:
+..Q.....
+......Q.
+.Q......
+.......Q
+.....Q..
+...Q....
+Q.......
+....Q...

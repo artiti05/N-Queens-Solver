@@ -1,0 +1,12 @@
+{
+    "population_size": 400,
+    "mutation_rate": 0.09155965742943262,
+    "max_generations": 4100,
+    "crossover_method": "uniform",
+    "4": {
+        "population_size": 400,
+        "mutation_rate": 0.008637455437508866,
+        "max_generations": 3200,
+        "crossover_method": "one-point"
+    }
+}
