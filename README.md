@@ -1,54 +1,78 @@
-# N-Queens-Solver
-N Queens Solver using the genetic algorithms (GA)
-Solving N-Queens in GA
+# N-Queens Solver using Genetic Algorithms (GA)
 
-To solve the problem we need to find the best hyperparameter for The GA
-after running the test.py file and inputing the n size a 50 tests will be done 
-showing on the log.txt the best population size, mutation rate, max generations, crossover method
+This project demonstrates solving the N-Queens problem using Genetic Algorithms (GA). The goal is to find the best hyperparameters for the GA to efficiently solve the problem.
 
-those outputs are put as parameters for the N-Q.py and therefore the problem is solved for 
-this n size input in the least time taken
+## How It Works
 
-for example for n = 4:
-Population Size: 200, Mutation Rate: 0.05843236813767189, Max Generations: 1300, crossover method: one-point
-Solution (1D Array Representation):
-[2, 0, 3, 1]
+1. **Hyperparameter Tuning**:  
+   - Run the `test.py` file and input the desired `n` (size of the chessboard).  
+   - 50 tests are conducted to identify the optimal values for:
+     - Population Size
+     - Mutation Rate
+     - Maximum Generations
+     - Crossover Method  
+   - The results are logged in the `log.txt` file.
 
-Chessboard Representation:
-.Q..
-...Q
-Q...
-..Q.
-in less than a second is shown on sol.txt file.
+2. **Solving the Problem**:  
+   - The identified hyperparameters are used as inputs for `N-Q.py`.  
+   - The N-Queens problem is solved for the given `n` size, with the solution and time taken recorded in the `sol.txt` file.
 
-and for n = 8 is: Population Size: 300, Mutation Rate: 0.025542997380196827, Max Generations: 2400, crossover method: uniform
-Solution (1D Array Representation):
-[3, 0, 4, 7, 5, 2, 6, 1]
+---
 
-Chessboard Representation:
-.Q......
-.......Q
-.....Q..
-Q.......
-..Q.....
-....Q...
-......Q.
-...Q....
-and for n=12: Population Size: 300, Mutation Rate: 0.011494393577002205, Max Generations: 2400, crossover method: one-point
-Solution (1D Array Representation):
-[4, 8, 3, 11, 2, 7, 9, 0, 5, 1, 10, 6]
+### Example Outputs
 
-Chessboard Representation:
-.......Q....
-.........Q..
-....Q.......
-..Q.........
-Q...........
-........Q...
-...........Q
-.....Q......
-.Q..........
-......Q.....
-..........Q.
-...Q........
-and so on for n when it gets larger and larger like n=16, 32....
+#### For n = 4
+- **Optimal Parameters**:  
+  - Population Size: 200  
+  - Mutation Rate: 0.05843236813767189  
+  - Max Generations: 1300  
+  - Crossover Method: One-point  
+
+- **Solution (1D Array Representation)**:  
+  `[2, 0, 3, 1]`
+
+- **Chessboard Representation**:
+- **Time Taken**: Less than a second.
+
+---
+
+#### For n = 8
+- **Optimal Parameters**:  
+- Population Size: 300  
+- Mutation Rate: 0.025542997380196827  
+- Max Generations: 2400  
+- Crossover Method: Uniform  
+
+- **Solution (1D Array Representation)**:  
+`[3, 0, 4, 7, 5, 2, 6, 1]`
+
+- **Chessboard Representation**:
+
+---
+
+#### For n = 12
+- **Optimal Parameters**:  
+- Population Size: 300  
+- Mutation Rate: 0.011494393577002205  
+- Max Generations: 2400  
+- Crossover Method: One-point  
+
+- **Solution (1D Array Representation)**:  
+`[4, 8, 3, 11, 2, 7, 9, 0, 5, 1, 10, 6]`
+
+- **Chessboard Representation**:
+
+---
+
+### Larger Board Sizes
+As `n` increases (e.g., 16, 32, ...), the algorithm continues to find solutions efficiently by leveraging the tuned hyperparameters.
+
+--- 
+
+### Files
+- **`test.py`**: Conducts hyperparameter tuning.  
+- **`log.txt`**: Logs the results of the tests.  
+- **`N-Q.py`**: Solves the N-Queens problem using the identified hyperparameters.  
+- **`sol.txt`**: Stores the final solution and time taken.
+
+---
